@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* html{
+            background-color: rgb(211, 228, 228);
+        } */
+        .clock{
+            background-color: rgb(245, 240, 240);
+            height: 10rem;
+            width: 10rem;
+            margin: 200px auto;
+            padding: 100px;
+            
+            /* border: 5px solid green; */
+            position: relative;
+            background-image: url('abc.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+        }
+        .sec{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            height: 5px;
+            /* width: 30%; */
+            background-color:rgb(90, 72, 72);
+            transform: rotate(-90deg);
+            transform-origin: left;
+        }
+        .hour{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 5px;
+            /* width: 20%; */
+            background-color:rgb(212, 73, 73);
+            transform: rotate(-90deg);
+            transform-origin: left;
+
+        }
+        .min{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 5px;
+            /* width: 25%; */
+            background-color:rgb(148, 122, 205);
+            transform: rotate(-90deg);
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour" id="h"></div>
+        <div class="min" id="m"></div>
+        <div class="sec" id="s"></div>
+    </div>
+
+    <script>
+let h=document.getElementById('h');
+let m=document.getElementById('m');
+let s=document.getElementById('s');
+function clock(){
+    let date=new Date();
+let secDeg=date.getSeconds()/60*360;
+let minDeg=date.getMinutes()/60*360 -90;
+let hourDeg=date.getHours()/12*360 -90;
+s.style.transform=`rotate(${secDeg}deg)`;
+m.style.transform=`rotate(${minDeg}deg)`;
+h.style.transform=`rotate(${hourDeg}deg)`;
+}
+setInterval(clock,1000);
+//by java script
+
+m.style.width = '33%';
+s.style.width = '35%';
+h.style.width = '20%'
+    </script>
+</body>
+</html>
